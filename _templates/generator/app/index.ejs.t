@@ -1,8 +1,11 @@
+---
+to: app.json
+---
 {
   "expo": {
     "name": "ais-react-native-challenge",
     "slug": "ais-react-native-challenge",
-    "version": "1.0.0",
+    "version": "<%= h.version %>",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -21,6 +24,7 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": <%- JSON.stringify(h.extra) %>
   }
 }
