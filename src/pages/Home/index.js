@@ -3,7 +3,7 @@ import { View, StyleSheet } from 'react-native'
 
 import { List, LoadingWrapper } from '../../components'
 import { MovieCard, SearchBar } from './components'
-import { useMovies } from '../../hooks'
+import { useMovies, useLanguageController } from '../../hooks'
 
 const Home = () => {
   const {
@@ -13,6 +13,7 @@ const Home = () => {
     paginate,
     searchMovies
   } = useMovies()
+  const { labels } = useLanguageController()
 
   const handleSearchSubmit = useCallback((title) => {
     searchMovies({
@@ -40,6 +41,7 @@ const Home = () => {
                 card={MovieCard}
                 onEndReached={paginate}
                 isPaginating={isPaginating}
+                emptyMessage={labels.noMoviesFound}
               />
           }
         </LoadingWrapper>

@@ -8,7 +8,8 @@ const Translations = {
     cancel: 'Cancel',
     confirm: 'Confirm',
     home: 'Home',
-    details: 'Details'
+    details: 'Details',
+    noMoviesFound: 'No movies found'
   },
   'pt-br': {
     genres: 'Gêneros(s)',
@@ -19,7 +20,8 @@ const Translations = {
     cancel: 'Cancelar',
     confirm: 'Confirmar',
     home: 'Início',
-    details: 'Detalhes'
+    details: 'Detalhes',
+    noMoviesFound: 'Nenhum filme encontrado'
   }
 }
 
