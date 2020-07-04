@@ -7,7 +7,8 @@ module.exports = {
   helpers: {
     version,
     extra: {
-      API_KEY: process.env.API_KEY
+      API_KEY: process.env.API_KEY,
+      REDUX_SECRET_KEY: process.env.REDUX_SECRET_KEY
     }
   }
 };
