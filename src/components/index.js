@@ -6,6 +6,7 @@ import ImageBackground from './ImageBackground'
 import StarRating from './StarRating'
 import HeaderBackIcon from './HeaderBackIcon'
 import Input from './Input'
+import HeaderRight from './HeaderRight'
 
 export {
   Typography,
@@ -15,5 +16,6 @@ export {
   ImageBackground,
   StarRating,
   HeaderBackIcon,
-  Input
+  Input,
+  HeaderRight
 }

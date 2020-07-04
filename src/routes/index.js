@@ -5,7 +5,7 @@ import { NavigationContainer, DefaultTheme } from '@react-navigation/native'
 import {
   Home, Details
 } from '../pages'
-import { HeaderBackIcon } from '../components'
+import { HeaderBackIcon, HeaderRight } from '../components'
 
 const Stack = createStackNavigator()
 
@@ -29,7 +29,8 @@ const HeaderStyle = {
   },
   headerTitleAlign: 'center',
   headerBackImage: HeaderBackIcon,
-  headerBackTitleVisible: false
+  headerBackTitleVisible: false,
+  headerRight: () => <HeaderRight />
 }
 
 const Router = () => (
