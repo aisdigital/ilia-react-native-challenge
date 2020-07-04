@@ -6,7 +6,9 @@ const Translations = {
     settings: 'Settings',
     language: 'Language',
     cancel: 'Cancel',
-    confirm: 'Confirm'
+    confirm: 'Confirm',
+    home: 'Home',
+    details: 'Details'
   },
   'pt-br': {
     genres: 'Gêneros(s)',
@@ -15,7 +17,9 @@ const Translations = {
     settings: 'Configurações',
     language: 'Idioma',
     cancel: 'Cancelar',
-    confirm: 'Confirmar'
+    confirm: 'Confirmar',
+    home: 'Início',
+    details: 'Detalhes'
   }
 }
 

@@ -1,6 +1,7 @@
-import { useCallback } from 'react'
+import { useCallback, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { reloadAsync } from 'expo-updates'
+import moment from 'moment/min/moment-with-locales'
 
 import { changeLanguage } from '../store/actions/Settings'
 
@@ -12,6 +13,10 @@ const useLanguageController = () => {
     dispatch(changeLanguage(language.toLowerCase()))
     reloadAsync()
   })
+
+  useEffect(() => {
+    moment.locale(Settings.language)
+  }, [Settings.language])
 
   return {
     language: Settings.language,

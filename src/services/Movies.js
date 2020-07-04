@@ -1,5 +1,7 @@
 import axios from 'axios'
 
+import { store } from '../store'
+
 const noPosterImage = 'https://res.cloudinary.com/iredhd/image/upload/v1593894106/ais-digital/no-image.png'
 const noTrailerImage = 'https://res.cloudinary.com/iredhd/image/upload/v1593895053/ais-digital/no-trailer-3.png'
 
@@ -10,7 +12,8 @@ const Movies = {
     if (!query) {
       const { data: result } = await axios.get('/movie/now_playing', {
         params: {
-          page
+          page,
+          language: store.getState().Settings.language
         }
       })
       data = result
@@ -18,7 +21,8 @@ const Movies = {
       const { data: result } = await axios.get('/search/movie', {
         params: {
           page,
-          query: query
+          query: query,
+          language: store.getState().Settings.language
         }
       })
       data = result
@@ -32,7 +36,8 @@ const Movies = {
   getMovie: async (id) => {
     const { data: movie } = await axios.get(`/movie/${id}`, {
       params: {
-        append_to_response: 'videos'
+        append_to_response: 'videos',
+        language: store.getState().Settings.language
       }
     })
 

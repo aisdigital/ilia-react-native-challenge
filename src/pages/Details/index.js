@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, StyleSheet, ScrollView } from 'react-native'
 import { useRoute, useTheme } from '@react-navigation/native'
-import moment from 'moment'
+import moment from 'moment/min/moment-with-locales'
 
 import { LoadingWrapper } from '../../components'
 import { useMovie, useLanguageController } from '../../hooks'
@@ -10,7 +10,7 @@ import { Title, Rating, Overview, Trailer, InfoRow } from './components'
 const Details = () => {
   const route = useRoute()
   const theme = useTheme()
-  const { labels, language } = useLanguageController()
+  const { labels } = useLanguageController()
 
   const [movie, isLoading] = useMovie(route.params.id)
 
@@ -40,7 +40,7 @@ const Details = () => {
               />
               <InfoRow
                 title={labels.releaseDate}
-                value={moment(movie.releaseDate).locale(language).format('LL')}
+                value={moment(movie.releaseDate).format('LL')}
               />
             </ScrollView>
           </>}

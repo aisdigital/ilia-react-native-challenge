@@ -1,6 +1,7 @@
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 import { NavigationContainer, DefaultTheme } from '@react-navigation/native'
+import { useLanguageController } from '../hooks'
 
 import {
   Home, Details
@@ -33,26 +34,36 @@ const HeaderStyle = {
   headerRight: () => <HeaderRight />
 }
 
-const Router = () => (
-  <NavigationContainer
-    theme={MyTheme}
-  >
-    <Stack.Navigator
-      initialRouteName='Home'
-      gestureEnabled={false}
+const Router = () => {
+  const { labels } = useLanguageController()
+
+  return (
+    <NavigationContainer
+      theme={MyTheme}
     >
-      <Stack.Screen
-        name='Home'
-        component={Home}
-        options={HeaderStyle}
-      />
-      <Stack.Screen
-        name='Details'
-        component={Details}
-        options={HeaderStyle}
-      />
-    </Stack.Navigator>
-  </NavigationContainer>
-)
+      <Stack.Navigator
+        initialRouteName='Home'
+        gestureEnabled={false}
+      >
+        <Stack.Screen
+          name='Home'
+          component={Home}
+          options={{
+            ...HeaderStyle,
+            title: labels.home
+          }}
+        />
+        <Stack.Screen
+          name='Details'
+          component={Details}
+          options={{
+            ...HeaderStyle,
+            title: labels.details
+          }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
+  )
+}
 
 export default Router
