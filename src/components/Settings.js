@@ -1,16 +1,14 @@
 import React, { useCallback, useState } from 'react'
 import { View, StyleSheet } from 'react-native'
-import Picker from 'react-native-picker-select'
-import { useTheme } from '@react-navigation/native'
 import PropTypes from 'prop-types'
 
 import Alert from './Alert'
 import Typography from './Typography'
+import Picker from './Picker'
 import { Translations } from '../utils'
 import { useLanguageController } from '../hooks'
 
 const Settings = ({ isVisible, onClose }) => {
-  const theme = useTheme()
   const { language, labels, changeLanguage } = useLanguageController()
   const [selectedLanguage, setSelectedLanguage] = useState(language)
 
@@ -19,7 +17,7 @@ const Settings = ({ isVisible, onClose }) => {
     changeLanguage(selectedLanguage)
   })
 
-  const handleLanguageChange = useCallback((value) => {
+  const handleLanguageChange = useCallback(({ value }) => {
     setSelectedLanguage(value)
   })
 
@@ -39,28 +37,13 @@ const Settings = ({ isVisible, onClose }) => {
             {`${labels.language}:`}
           </Typography>
           <Picker
-            placeholder={{}}
-            style={{
-              inputIOS: {
-                textDecorationLine: 'underline',
-                fontSize: 16,
-                fontWeight: 'bold',
-                color: theme.colors.text
-              },
-              inputAndroid: {
-                textDecorationLine: 'underline',
-                fontSize: 16,
-                fontWeight: 'bold',
-                color: theme.colors.text
-              }
-            }}
-            value={selectedLanguage}
-            onValueChange={handleLanguageChange}
-            items={selectOptions.map(option => ({
+            data={selectOptions.map(option => ({
               label: option.toUpperCase(),
               value: option.toLocaleLowerCase(),
               key: option.toLocaleLowerCase()
             }))}
+            initValue={selectedLanguage.toUpperCase()}
+            onChange={handleLanguageChange}
           />
         </View>
       )}

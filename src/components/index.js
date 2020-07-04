@@ -7,6 +7,7 @@ import StarRating from './StarRating'
 import HeaderBackIcon from './HeaderBackIcon'
 import Input from './Input'
 import HeaderRight from './HeaderRight'
+import Picker from './Picker'
 
 export {
   Typography,
@@ -17,5 +18,6 @@ export {
   StarRating,
   HeaderBackIcon,
   Input,
-  HeaderRight
+  HeaderRight,
+  Picker
 }
