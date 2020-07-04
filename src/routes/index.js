@@ -5,6 +5,7 @@ import { NavigationContainer, DefaultTheme } from '@react-navigation/native'
 import {
   Home, Details
 } from '../pages'
+import { HeaderBackIcon } from '../components'
 
 const Stack = createStackNavigator()
 
@@ -24,7 +25,11 @@ const HeaderStyle = {
   headerTitleStyle: {
     fontWeight: 'bold',
     color: 'white'
-  }
+  },
+  headerTitleAlign: 'center',
+  headerBackImage: HeaderBackIcon,
+  headerBackTitleVisible: false
+
 }
 
 const Router = () => (

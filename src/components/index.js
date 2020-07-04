@@ -4,6 +4,7 @@ import Loading from './Loading'
 import LoadingWrapper from './LoadingWrapper'
 import ImageBackground from './ImageBackground'
 import StarRating from './StarRating'
+import HeaderBackIcon from './HeaderBackIcon'
 
 export {
   Typography,
@@ -11,5 +12,6 @@ export {
   Loading,
   LoadingWrapper,
   ImageBackground,
-  StarRating
+  StarRating,
+  HeaderBackIcon
 }
