@@ -1,18 +1,25 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import { View, StyleSheet, Dimensions, TouchableOpacity } from 'react-native'
-import StarRating from 'react-native-star-rating'
-import { useTheme } from '@react-navigation/native'
+import { useNavigation } from '@react-navigation/native'
+import PropTypes from 'prop-types'
 
-import { Typography, ImageBackground } from '../../../components'
+import { Typography, ImageBackground, StarRating } from '../../../components'
 
 const { height } = Dimensions.get('window')
 
 const MovieCard = ({ item }) => {
-  const theme = useTheme()
+  const navigation = useNavigation()
+
+  const handlePress = useCallback(() => {
+    navigation.navigate('Details', {
+      id: item.id
+    })
+  })
 
   return (
     <TouchableOpacity
       style={styles.container}
+      onPress={handlePress}
     >
       <ImageBackground
         source={{
@@ -32,12 +39,6 @@ const MovieCard = ({ item }) => {
           </Typography>
           <StarRating
             containerStyle={styles.starsContainer}
-            halfStarColor={theme.colors.text}
-            emptyStarColor={theme.colors.text}
-            fullStarColor={theme.colors.text}
-            maxStars={10}
-            starSize={16}
-            disabled
             rating={item.rating}
           />
         </View>
@@ -70,5 +71,14 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   }
 })
+
+MovieCard.propTypes = {
+  item: PropTypes.shape({
+    id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    title: PropTypes.string,
+    image: PropTypes.string,
+    rating: PropTypes.number
+  }).isRequired
+}
 
 export default MovieCard

@@ -15,12 +15,15 @@ const Home = () => {
       <LoadingWrapper
         isLoading={isLoading}
       >
-        <List
-          data={movies}
-          card={MovieCard}
-          onEndReached={paginate}
-          isPaginating={isPaginating}
-        />
+        {
+          () =>
+            <List
+              data={movies}
+              card={MovieCard}
+              onEndReached={paginate}
+              isPaginating={isPaginating}
+            />
+        }
       </LoadingWrapper>
     </View>
   )

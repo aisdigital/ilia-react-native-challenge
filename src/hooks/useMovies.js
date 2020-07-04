@@ -3,7 +3,7 @@ import { useState, useEffect, useCallback } from 'react'
 import { Movies } from '../services'
 
 const useMovies = () => {
-  const [movies, setMovies] = useState(null)
+  const [movies, setMovies] = useState([])
   const [isLoading, setIsLoading] = useState(false)
   const [isPaginating, setIsPaginating] = useState(false)
   const [page, setPage] = useState(1)

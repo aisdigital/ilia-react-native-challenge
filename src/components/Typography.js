@@ -10,7 +10,7 @@ const Typography = ({ children, fontWeight, style, fontSize, ...rest }) => {
     <Text
       {...rest}
       style={[
-        { color: theme.text },
+        { color: theme.colors.text },
         styles.text,
         fontWeight && { fontWeight },
         fontSize && { fontSize },
@@ -28,8 +28,17 @@ const styles = StyleSheet.create({
   }
 })
 
+Typography.defaultProps = {
+  fontSize: 16,
+  fontWeight: 'normal',
+  style: {}
+}
+
 Typography.propTypes = {
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
+  fontSize: PropTypes.number,
+  fontWeight: PropTypes.string,
+  style: PropTypes.oneOfType([PropTypes.array, PropTypes.object])
 }
 
 export default Typography

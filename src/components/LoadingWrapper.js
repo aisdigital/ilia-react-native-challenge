@@ -9,7 +9,7 @@ const LoadingWrapper = ({ isLoading, children }) => {
       {
         isLoading
           ? <Loading />
-          : children
+          : children()
       }
     </>)
 }
@@ -19,7 +19,8 @@ LoadingWrapper.defaultProps = {
 }
 
 LoadingWrapper.propTypes = {
-  isLoading: PropTypes.bool
+  isLoading: PropTypes.bool,
+  children: PropTypes.func.isRequired
 }
 
 export default LoadingWrapper
