@@ -14,7 +14,8 @@ const MyTheme = {
   colors: {
     primary: 'rgb(107, 210, 119)',
     background: 'rgba(10, 28, 36, 0.2)',
-    text: 'rgb(10, 28, 36)'
+    text: 'rgb(10, 28, 36)',
+    placeholder: 'rgba(10, 28, 36, 0.7)'
   }
 }
 
@@ -29,7 +30,6 @@ const HeaderStyle = {
   headerTitleAlign: 'center',
   headerBackImage: HeaderBackIcon,
   headerBackTitleVisible: false
-
 }
 
 const Router = () => (

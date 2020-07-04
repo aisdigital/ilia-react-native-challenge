@@ -5,6 +5,7 @@ import LoadingWrapper from './LoadingWrapper'
 import ImageBackground from './ImageBackground'
 import StarRating from './StarRating'
 import HeaderBackIcon from './HeaderBackIcon'
+import Input from './Input'
 
 export {
   Typography,
@@ -13,5 +14,6 @@ export {
   LoadingWrapper,
   ImageBackground,
   StarRating,
-  HeaderBackIcon
+  HeaderBackIcon,
+  Input
 }
