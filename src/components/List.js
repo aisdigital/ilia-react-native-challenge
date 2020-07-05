@@ -22,6 +22,7 @@ const List = ({
 
   return (
     <FlatList
+      showsVerticalScrollIndicator={false}
       numColumns={2}
       refreshControl={(
         <RefreshControl

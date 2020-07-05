@@ -27,6 +27,7 @@ const Details = () => {
           <>
             {movie.trailer && <Trailer {...movie} />}
             <ScrollView
+              showsVerticalScrollIndicator={false}
               bounces={false}
               contentContainerStyle={[
                 styles.detailsContainer,
@@ -60,7 +61,8 @@ const styles = StyleSheet.create({
   detailsContainer: {
     paddingHorizontal: 15,
     paddingTop: 10,
-    flex: 1,
+    paddingBottom: 40,
+    flexGrow: 1,
   },
 });
 
