@@ -1,20 +1,56 @@
-# Code Challenge React Native
+<h1 align="center">
+  <img src="https://res.cloudinary.com/iredhd/image/upload/v1593918691/ais-digital/iconfinder_movie-alt2_285634_zwcl8y.png" width=150 />
+</h1>
 
-## O desafio:
-Utilizando a API do [TheMovieDB](https://developers.themoviedb.org/3/getting-started/introduction), Criar um app que mostre os filmes que estão em cartaz nos cinemas, em forma de lista.
+<p align="center">
+  <a href="#technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#installation">Installation</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#configuration">Configuration</a>
+</p>
 
-Ao tocar em um filme, mostrar em uma nova tela, informações detalhadas sobre ele, você pode escolher quais informações acha interessante mostrar.
+The application consists of a system with two screens, home and details. Where the user can look the recent movies, search for a title, and after select a movie the user can see more details about.
 
-- Na tela de detalhe, criar uma opçāo para tocar o vídeo do trailer do filme.
-- Na tela inicial, possibilitar a busca por título do filme
+To test the project already configured and running [click here.](https://exp.host/@iredhd/ais-react-native-challenge)
 
-## Extras:
+<div style="display: flex; flex: 1; justify-content: space-evenly;">
+<div style="display: flex;">
+<img alt="Home Image" src="https://res.cloudinary.com/iredhd/image/upload/v1593919044/ais-digital/home.png.png" height=300 />
+</div>
+<div style="display: flex;">
+<img alt="Details Image" src="https://res.cloudinary.com/iredhd/image/upload/v1593919272/ais-digital/details.png.png" height=300 />
+</div>
+<div style="display: flex;">
+<img alt="Settings Image" src="https://res.cloudinary.com/iredhd/image/upload/v1593919272/ais-digital/settings.png.png" height=300 />
+</div>
+</div>
 
-- Na tela de listagem dos filmes, ir carregando as próximas páginas ao dar scroll até o final da página atual
+## Technologies
+- [React](https://github.com/facebook/react)
+- [React Native](https://github.com/facebook/react-native)
+- [React Navigation](https://github.com/react-navigation/react-navigation)
+- [Prop-Types](https://github.com/facebook/prop-types)
+- [Hygen](https://github.com/jondot/hygen)
+- [ESLint](https://github.com/eslint/eslint)
+- [Git-cz](https://github.com/streamich/git-cz)
+- [Unform](https://github.com/Rocketseat/unform)
+- [Axios](https://github.com/axios/axios)
+- [Redux](https://github.com/reduxjs/redux)
+- [Redux Persist](https://github.com/rt2zz/redux-persist)
+- [Redux Persist Transform Encrypt](https://github.com/maxdeviant/redux-persist-transform-encrypt)
 
+## Installation
+```
+git clone https://github.com/iredhd/ais-react-native-challenge.git
+cd ais-react-native-challenge
+cp .env.example .env
+yarn
+yarn start
+```
 
-No final, um pull request deve ser criado no repositório do Github. Assim que terminar, por favor nos avise.
+## Configuration
+Please, before executing `yarn start`, fill in the environment variables inside the `.env` file.
 
-Estamos à disposição, para tirar dúvidas.
-
-Happy coding! 🤓
+| VARIABLE  |  DESCRIPTION  |
+| ------------------- | ------------------- |
+| API_KEY |  [TMDB](https://www.themoviedb.org/?language=pt-BR) API Key |
+| REDUX_SECRET_KEY |  REDUX secret key for encrypt |
