@@ -23,7 +23,7 @@ const Details = () => {
       >
         {() =>
           <>
-            <Trailer {...movie} />
+            {movie.trailer && <Trailer {...movie} />}
             <ScrollView
               bounces={false}
               contentContainerStyle={[

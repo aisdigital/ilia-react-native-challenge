@@ -9,7 +9,7 @@ to: app.json
     "orientation": "portrait",
     "icon": "./src/assets/icon.png",
     "splash": {
-      "image": "./src/assets/splash.jpg",
+      "image": "./src/assets/splash.png",
       "resizeMode": "cover",
       "backgroundColor": "#ffffff"
     },

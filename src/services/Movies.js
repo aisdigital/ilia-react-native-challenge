@@ -3,7 +3,6 @@ import axios from 'axios'
 import { store } from '../store'
 
 const noPosterImage = 'https://res.cloudinary.com/iredhd/image/upload/v1593894106/ais-digital/no-image.png'
-const noTrailerImage = 'https://res.cloudinary.com/iredhd/image/upload/v1593895053/ais-digital/no-trailer-3.png'
 
 const Movies = {
   getMovies: async ({ page = 1, search: query = '' }) => {
@@ -57,12 +56,12 @@ const Movies = {
         ? `https://image.tmdb.org/t/p/original${movie.poster_path}`
         : noPosterImage,
       trailer: movie?.videos?.results.reduce((previous, current) => {
-        if (previous === noTrailerImage && current.type === 'Trailer') {
+        if (!previous && current.type === 'Trailer') {
           return `https://www.youtube.com/embed/${current.key}?controls=2&autoplay=1`
         }
 
         return previous
-      }, noTrailerImage)
+      }, null)
     })
   }
 }

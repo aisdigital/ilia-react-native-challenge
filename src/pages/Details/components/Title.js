@@ -47,9 +47,13 @@ const styles = StyleSheet.create({
   }
 })
 
+Title.defaultProps = {
+  homepage: ''
+}
+
 Title.propTypes = {
   title: PropTypes.string.isRequired,
-  homepage: PropTypes.string.isRequired
+  homepage: PropTypes.string
 }
 
 export default Title

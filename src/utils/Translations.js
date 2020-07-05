@@ -13,7 +13,7 @@ const Translations = {
   },
   'pt-br': {
     genres: 'Gêneros(s)',
-    releaseDate: 'Data de lançamento',
+    releaseDate: 'Lançamento',
     searchMoviesPlaceholder: 'Digite um título para buscar',
     settings: 'Configurações',
     language: 'Idioma',

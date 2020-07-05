@@ -28,6 +28,7 @@ const Trailer = ({ trailer }) => {
     ]}
     >
       <WebView
+        allowsFullscreenVideo
         onLoadStart={handleTrailerLoadStart}
         onLoadEnd={handleTrailerLoadEnd}
         javaScriptEnabled
