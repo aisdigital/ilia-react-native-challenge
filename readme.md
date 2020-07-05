@@ -12,11 +12,6 @@ The application consists of a system with two screens, home and details. Where t
 
 To test the project already configured and running [click here.](https://exp.host/@iredhd/ais-react-native-challenge)
 
-
-Home Screen             |  Details Screen 
-:-------------------------:|:-------------------------:
-![](https://res.cloudinary.com/iredhd/image/upload/v1593919044/ais-digital/home.png)  |  ![](https://res.cloudinary.com/iredhd/image/upload/v1593919272/ais-digital/details.png.png)
-
 ## Technologies
 - [React](https://github.com/facebook/react)
 - [React Native](https://github.com/facebook/react-native)
