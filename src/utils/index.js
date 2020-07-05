@@ -1,5 +1,5 @@
-import Translations from './Translations'
+import Translations from './Translations';
 
 export {
-  Translations
-}
+  Translations,
+};

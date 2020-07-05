@@ -1,9 +1,9 @@
-import React, { useCallback } from 'react'
-import { View, StyleSheet } from 'react-native'
+import React, { useCallback } from 'react';
+import { View, StyleSheet } from 'react-native';
 
-import { List, LoadingWrapper } from '../../components'
-import { MovieCard, SearchBar } from './components'
-import { useMovies, useLanguageController } from '../../hooks'
+import { List, LoadingWrapper } from '../../components';
+import { MovieCard, SearchBar } from './components';
+import { useMovies, useLanguageController } from '../../hooks';
 
 const Home = () => {
   const {
@@ -13,15 +13,15 @@ const Home = () => {
     paginate,
     searchMovies,
     refresh,
-    isRefreshing
-  } = useMovies()
-  const { labels } = useLanguageController()
+    isRefreshing,
+  } = useMovies();
+  const { labels } = useLanguageController();
 
   const handleSearchSubmit = useCallback((title) => {
     searchMovies({
-      title
-    })
-  })
+      title,
+    });
+  });
 
   return (
     <View
@@ -37,7 +37,7 @@ const Home = () => {
           isLoading={isLoading}
         >
           {
-            () =>
+            () => (
               <List
                 data={movies}
                 isRefreshing={isRefreshing}
@@ -48,24 +48,25 @@ const Home = () => {
                 onRefresh={refresh}
                 contentContainerStyle={styles.contentContainerStyle}
               />
-          }
+            )
+}
         </LoadingWrapper>
       </View>
     </View>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
   },
   listContainer: {
     flex: 1,
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   contentContainerStyle: {
-    paddingBottom: 40
-  }
-})
+    paddingBottom: 40,
+  },
+});
 
-export default Home
+export default Home;

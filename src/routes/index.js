@@ -1,14 +1,14 @@
-import React from 'react'
-import { createStackNavigator } from '@react-navigation/stack'
-import { NavigationContainer, DefaultTheme } from '@react-navigation/native'
-import { useLanguageController } from '../hooks'
+import React from 'react';
+import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
+import { useLanguageController } from '../hooks';
 
 import {
-  Home, Details
-} from '../pages'
-import { HeaderBackIcon, HeaderRight } from '../components'
+  Home, Details,
+} from '../pages';
+import { HeaderBackIcon, HeaderRight } from '../components';
 
-const Stack = createStackNavigator()
+const Stack = createStackNavigator();
 
 const MyTheme = {
   ...DefaultTheme,
@@ -16,54 +16,54 @@ const MyTheme = {
     primary: 'rgb(107, 210, 119)',
     background: 'rgba(10, 28, 36, 0.2)',
     text: 'rgb(10, 28, 36)',
-    placeholder: 'rgba(10, 28, 36, 0.7)'
-  }
-}
+    placeholder: 'rgba(10, 28, 36, 0.7)',
+  },
+};
 
 const HeaderStyle = {
   headerStyle: {
-    backgroundColor: 'rgb(10, 28, 36)'
+    backgroundColor: 'rgb(10, 28, 36)',
   },
   headerTitleStyle: {
     fontWeight: 'bold',
-    color: 'white'
+    color: 'white',
   },
   headerTitleAlign: 'center',
   headerBackImage: HeaderBackIcon,
   headerBackTitleVisible: false,
-  headerRight: () => <HeaderRight />
-}
+  headerRight: () => <HeaderRight />,
+};
 
 const Router = () => {
-  const { labels } = useLanguageController()
+  const { labels } = useLanguageController();
 
   return (
     <NavigationContainer
       theme={MyTheme}
     >
       <Stack.Navigator
-        initialRouteName='Home'
+        initialRouteName="Home"
         gestureEnabled={false}
       >
         <Stack.Screen
-          name='Home'
+          name="Home"
           component={Home}
           options={{
             ...HeaderStyle,
-            title: labels.home
+            title: labels.home,
           }}
         />
         <Stack.Screen
-          name='Details'
+          name="Details"
           component={Details}
           options={{
             ...HeaderStyle,
-            title: labels.details
+            title: labels.details,
           }}
         />
       </Stack.Navigator>
     </NavigationContainer>
-  )
-}
+  );
+};
 
-export default Router
+export default Router;

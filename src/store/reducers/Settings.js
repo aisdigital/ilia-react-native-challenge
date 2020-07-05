@@ -1,12 +1,12 @@
-import { ActionTypes } from '../actions'
-import { Translations } from '../../utils'
+import { ActionTypes } from '../actions';
+import { Translations } from '../../utils';
 
 const initialState = {
   language: 'en',
   labels: {
-    ...Translations.en
-  }
-}
+    ...Translations.en,
+  },
+};
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -14,11 +14,11 @@ const reducer = (state = initialState, action) => {
       return {
         ...initialState,
         language: action.payload.language,
-        labels: Translations[action.payload.language]
-      }
+        labels: Translations[action.payload.language],
+      };
     default:
-      return state
+      return state;
   }
-}
+};
 
-export default reducer
+export default reducer;

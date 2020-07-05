@@ -1,10 +1,12 @@
-import React from 'react'
-import { FlatList, View, StyleSheet, RefreshControl } from 'react-native'
-import PropTypes from 'prop-types'
-import { useTheme } from '@react-navigation/native'
+import React from 'react';
+import {
+  FlatList, View, StyleSheet, RefreshControl,
+} from 'react-native';
+import PropTypes from 'prop-types';
+import { useTheme } from '@react-navigation/native';
 
-import Loading from './Loading'
-import Typography from './Typography'
+import Loading from './Loading';
+import Typography from './Typography';
 
 const List = ({
   data,
@@ -14,9 +16,9 @@ const List = ({
   onEndReached,
   isPaginating,
   contentContainerStyle,
-  emptyMessage
+  emptyMessage,
 }) => {
-  const theme = useTheme()
+  const theme = useTheme();
 
   return (
     <FlatList
@@ -38,68 +40,67 @@ const List = ({
       contentContainerStyle={[styles.contentContainerStyle, contentContainerStyle]}
       ListFooterComponent={isPaginating && <PaginatingLoad />}
     />
-  )
-}
+  );
+};
 
-const PaginatingLoad = () => {
-  return (
-    <View style={styles.paginationContainer}>
-      <Loading />
-    </View>
-  )
-}
+const PaginatingLoad = () => (
+  <View style={styles.paginationContainer}>
+    <Loading />
+  </View>
+);
 
-const EmptyComponent = ({ emptyMessage }) => {
-  return (
-    <View
-      style={styles.emptyContainer}
+const EmptyComponent = ({ emptyMessage }) => (
+  <View
+    style={styles.emptyContainer}
+  >
+    <Typography
+      fontSize={20}
+      fontWeight="bold"
+      style={styles.emptyText}
     >
-      <Typography
-        fontSize={20}
-        fontWeight='bold'
-        style={styles.emptyText}
-      >
-        {emptyMessage}
-      </Typography>
-    </View>
-  )
-}
+      {emptyMessage}
+    </Typography>
+  </View>
+);
 
 const styles = StyleSheet.create({
   contentContainerStyle: {
-    minHeight: '100%'
+    minHeight: '100%',
   },
   paginationContainer: {
     paddingTop: 15,
-    paddingBottom: 30
+    paddingBottom: 30,
   },
   emptyContainer: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   emptyText: {
-    textAlign: 'center'
-  }
-})
+    textAlign: 'center',
+  },
+});
+
+EmptyComponent.propTypes = {
+  emptyMessage: PropTypes.string.isRequired,
+};
 
 List.defaultProps = {
   onEndReached: () => { },
   contentContainerStyle: {},
   isPaginating: false,
-  onRefresh: () => { },
-  isRefreshing: false
-}
+  isRefreshing: false,
+};
 
 List.propTypes = {
-  data: PropTypes.array.isRequired,
+  data: PropTypes.arrayOf(PropTypes.object).isRequired,
   card: PropTypes.func.isRequired,
   onEndReached: PropTypes.func,
   isPaginating: PropTypes.bool,
   isRefreshing: PropTypes.bool,
   onRefresh: PropTypes.func.isRequired,
   emptyMessage: PropTypes.string.isRequired,
-  contentContainerStyle: PropTypes.oneOfType([PropTypes.array, PropTypes.object])
-}
+  contentContainerStyle: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
+};
 
-export default List
+export default List;

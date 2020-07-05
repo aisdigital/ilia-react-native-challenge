@@ -1,33 +1,31 @@
-import React from 'react'
-import { View, StyleSheet } from 'react-native'
-import PropTypes from 'prop-types'
+import React from 'react';
+import { View, StyleSheet } from 'react-native';
+import PropTypes from 'prop-types';
 
-import { Typography } from '../../../components'
+import { Typography } from '../../../components';
 
-const Rating = ({ rating, ratingCount }) => {
-  return (
-    <View
-      style={styles.container}
+const Rating = ({ rating, ratingCount }) => (
+  <View
+    style={styles.container}
+  >
+    <Typography
+      fontWeight="bold"
     >
-      <Typography
-        fontWeight='bold'
-      >
-        {`${rating}/10 (${ratingCount})`}
-      </Typography>
-    </View>
-  )
-}
+      {`${rating}/10 (${ratingCount})`}
+    </Typography>
+  </View>
+);
 
 const styles = StyleSheet.create({
   container: {
     paddingTop: 15,
-    alignItems: 'center'
-  }
-})
+    alignItems: 'center',
+  },
+});
 
 Rating.propTypes = {
   rating: PropTypes.number.isRequired,
-  ratingCount: PropTypes.number.isRequired
-}
+  ratingCount: PropTypes.number.isRequired,
+};
 
-export default Rating
+export default Rating;

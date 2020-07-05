@@ -1,26 +1,25 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
+import PropTypes from 'prop-types';
 
-import Loading from './Loading'
+import Loading from './Loading';
 
-const LoadingWrapper = ({ isLoading, children }) => {
-  return (
-    <>
-      {
+const LoadingWrapper = ({ isLoading, children }) => (
+  <>
+    {
         isLoading
           ? <Loading />
           : children()
       }
-    </>)
-}
+  </>
+);
 
 LoadingWrapper.defaultProps = {
-  isLoading: false
-}
+  isLoading: false,
+};
 
 LoadingWrapper.propTypes = {
   isLoading: PropTypes.bool,
-  children: PropTypes.func.isRequired
-}
+  children: PropTypes.func.isRequired,
+};
 
-export default LoadingWrapper
+export default LoadingWrapper;

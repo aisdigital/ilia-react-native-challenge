@@ -1,30 +1,30 @@
-import React, { useState, useCallback } from 'react'
-import { View, StyleSheet, Dimensions } from 'react-native'
-import WebView from 'react-native-webview'
-import { useTheme } from '@react-navigation/native'
-import PropTypes from 'prop-types'
+import React, { useState, useCallback } from 'react';
+import { View, StyleSheet, Dimensions } from 'react-native';
+import WebView from 'react-native-webview';
+import { useTheme } from '@react-navigation/native';
+import PropTypes from 'prop-types';
 
-import { Loading } from '../../../components'
+import { Loading } from '../../../components';
 
-const { height } = Dimensions.get('window')
+const { height } = Dimensions.get('window');
 
 const Trailer = ({ trailer }) => {
-  const theme = useTheme()
-  const [isLoadingTrailer, setIsLoadingTrailer] = useState(true)
+  const theme = useTheme();
+  const [isLoadingTrailer, setIsLoadingTrailer] = useState(true);
 
   const handleTrailerLoadStart = useCallback(() => {
-    setIsLoadingTrailer(true)
-  })
+    setIsLoadingTrailer(true);
+  });
 
   const handleTrailerLoadEnd = useCallback(() => {
-    setIsLoadingTrailer(false)
-  })
+    setIsLoadingTrailer(false);
+  });
 
   return (
     <View style={[
       styles.container,
       { backgroundColor: theme.colors.background },
-      isLoadingTrailer && styles.videoContainerIsLoading
+      isLoadingTrailer && styles.videoContainerIsLoading,
     ]}
     >
       <WebView
@@ -33,32 +33,34 @@ const Trailer = ({ trailer }) => {
         onLoadEnd={handleTrailerLoadEnd}
         javaScriptEnabled
         source={{
-          uri: trailer
+          uri: trailer,
         }}
       />
-      {isLoadingTrailer &&
+      {isLoadingTrailer
+        && (
         <View style={styles.loadingContainer}>
           <Loading />
-        </View>}
+        </View>
+        )}
     </View>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
-    height: height / 4
+    height: height / 4,
   },
   videoContainerIsLoading: {
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   loadingContainer: {
-    position: 'absolute'
-  }
-})
+    position: 'absolute',
+  },
+});
 
 Trailer.propTypes = {
-  trailer: PropTypes.string.isRequired
-}
+  trailer: PropTypes.string.isRequired,
+};
 
-export default Trailer
+export default Trailer;

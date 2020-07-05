@@ -1,25 +1,25 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback } from 'react';
 
-import { Movies } from '../services'
+import { Movies } from '../services';
 
 const useMovie = (id) => {
-  const [movie, setMovie] = useState(null)
-  const [isLoading, setIsLoading] = useState(true)
+  const [movie, setMovie] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
-  const loadMovie = useCallback(async (id) => {
-    setIsLoading(true)
+  const loadMovie = useCallback(async (movieId) => {
+    setIsLoading(true);
 
-    const result = await Movies.getMovie(id)
+    const result = await Movies.getMovie(movieId);
 
-    setMovie(result)
-    setIsLoading(false)
-  })
+    setMovie(result);
+    setIsLoading(false);
+  });
 
   useEffect(() => {
-    loadMovie(id)
-  }, [id])
+    loadMovie(id);
+  }, [id]);
 
-  return [movie, isLoading]
-}
+  return [movie, isLoading];
+};
 
-export default useMovie
+export default useMovie;

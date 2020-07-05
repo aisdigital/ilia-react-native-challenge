@@ -9,7 +9,7 @@ const Translations = {
     confirm: 'Confirm',
     home: 'Home',
     details: 'Details',
-    noMoviesFound: 'No movies found'
+    noMoviesFound: 'No movies found',
   },
   'pt-br': {
     genres: 'Gêneros(s)',
@@ -21,8 +21,8 @@ const Translations = {
     confirm: 'Confirmar',
     home: 'Início',
     details: 'Detalhes',
-    noMoviesFound: 'Nenhum filme encontrado'
-  }
-}
+    noMoviesFound: 'Nenhum filme encontrado',
+  },
+};
 
-export default Translations
+export default Translations;

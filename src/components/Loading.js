@@ -1,16 +1,16 @@
-import React from 'react'
-import { ActivityIndicator } from 'react-native'
-import { useTheme } from '@react-navigation/native'
+import React from 'react';
+import { ActivityIndicator } from 'react-native';
+import { useTheme } from '@react-navigation/native';
 
 const Loading = () => {
-  const theme = useTheme()
+  const theme = useTheme();
 
   return (
     <ActivityIndicator
-      size='large'
+      size="large"
       color={theme.colors.text}
     />
-  )
-}
+  );
+};
 
-export default Loading
+export default Loading;

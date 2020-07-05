@@ -1,21 +1,21 @@
-import React, { useState, useCallback } from 'react'
-import { TouchableOpacity, StyleSheet } from 'react-native'
-import { Feather } from '@expo/vector-icons'
-import { useTheme } from '@react-navigation/native'
+import React, { useState, useCallback } from 'react';
+import { TouchableOpacity, StyleSheet } from 'react-native';
+import { Feather } from '@expo/vector-icons';
+import { useTheme } from '@react-navigation/native';
 
-import Settings from './Settings'
+import Settings from './Settings';
 
 const HeaderRight = () => {
-  const theme = useTheme()
-  const [isSettingsVisible, setIsSettingsVisible] = useState(false)
+  const theme = useTheme();
+  const [isSettingsVisible, setIsSettingsVisible] = useState(false);
 
   const openSettingsPop = useCallback(() => {
-    setIsSettingsVisible(true)
-  })
+    setIsSettingsVisible(true);
+  });
 
   const closeSettingsPop = useCallback(() => {
-    setIsSettingsVisible(false)
-  })
+    setIsSettingsVisible(false);
+  });
 
   return (
     <>
@@ -24,7 +24,7 @@ const HeaderRight = () => {
         onPress={openSettingsPop}
       >
         <Feather
-          name='settings'
+          name="settings"
           size={30}
           color={theme.colors.primary}
         />
@@ -34,13 +34,13 @@ const HeaderRight = () => {
         onClose={closeSettingsPop}
       />
     </>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
-    paddingHorizontal: 10
-  }
-})
+    paddingHorizontal: 10,
+  },
+});
 
-export default HeaderRight
+export default HeaderRight;

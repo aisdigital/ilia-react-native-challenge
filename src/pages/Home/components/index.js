@@ -1,7 +1,7 @@
-import MovieCard from './MovieCard'
-import SearchBar from './SearchBar'
+import MovieCard from './MovieCard';
+import SearchBar from './SearchBar';
 
 export {
   MovieCard,
-  SearchBar
-}
+  SearchBar,
+};

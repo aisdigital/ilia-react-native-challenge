@@ -1,89 +1,89 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback } from 'react';
 
-import { Movies } from '../services'
+import { Movies } from '../services';
 
 const useMovies = () => {
-  const [movies, setMovies] = useState([])
-  const [isLoading, setIsLoading] = useState(false)
-  const [isPaginating, setIsPaginating] = useState(false)
-  const [isRefreshing, setIsRefreshing] = useState(false)
-  const [page, setPage] = useState(1)
-  const [maxPage, setMaxPage] = useState(1)
-  const [search, setSearch] = useState('')
+  const [movies, setMovies] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isPaginating, setIsPaginating] = useState(false);
+  const [isRefreshing, setIsRefreshing] = useState(false);
+  const [page, setPage] = useState(1);
+  const [maxPage, setMaxPage] = useState(1);
+  const [search, setSearch] = useState('');
 
   const paginate = useCallback(async () => {
-    const newPage = page + 1
+    const newPage = page + 1;
 
     if (isPaginating || newPage >= maxPage) {
-      return
+      return;
     }
 
-    setIsPaginating(true)
+    setIsPaginating(true);
 
-    setPage(newPage)
+    setPage(newPage);
 
-    const result = await loadMovies({ page: newPage })
+    const result = await loadMovies({ page: newPage });
 
     setMovies([
       ...movies,
-      ...result
-    ])
+      ...result,
+    ]);
 
-    setIsPaginating(false)
-  })
+    setIsPaginating(false);
+  });
 
   const refresh = useCallback(async () => {
-    setIsRefreshing(true)
+    setIsRefreshing(true);
 
-    const newPage = 1
+    const newPage = 1;
 
-    setPage(newPage)
-    const result = await loadMovies({ page: newPage })
+    setPage(newPage);
+    const result = await loadMovies({ page: newPage });
 
-    setMovies(result)
-    setIsRefreshing(false)
-  })
+    setMovies(result);
+    setIsRefreshing(false);
+  });
 
   const searchMovies = useCallback(async ({ title }) => {
-    const newSearch = title
+    const newSearch = title;
 
-    const newPage = 1
+    const newPage = 1;
 
-    setPage(newPage)
-    setSearch(newSearch)
+    setPage(newPage);
+    setSearch(newSearch);
 
-    setIsLoading(true)
+    setIsLoading(true);
 
     const result = await loadMovies({
       page: newPage,
-      search: newSearch
-    })
+      search: newSearch,
+    });
 
-    setMovies(result)
-    setIsLoading(false)
-  })
+    setMovies(result);
+    setIsLoading(false);
+  });
 
   const loadMovies = useCallback(async ({ page: pageToLoad = 1, search: searchToLoad = search }) => {
-    const { movies, totalPages } = await Movies.getMovies({
+    const { movies: newMovies, totalPages } = await Movies.getMovies({
       page: pageToLoad,
-      search: searchToLoad
-    })
+      search: searchToLoad,
+    });
 
-    setMaxPage(totalPages)
+    setMaxPage(totalPages);
 
-    return movies
-  })
+    return newMovies;
+  });
 
   const initialLoad = useCallback(async () => {
-    setIsLoading(true)
-    const result = await loadMovies({ page: 1 })
-    setMovies(result)
-    setIsLoading(false)
-  })
+    setIsLoading(true);
+    const result = await loadMovies({ page: 1 });
+    setMovies(result);
+    setIsLoading(false);
+  });
 
   useEffect(() => {
-    initialLoad()
-  }, [])
+    initialLoad();
+  }, []);
 
   return {
     movies,
@@ -92,8 +92,8 @@ const useMovies = () => {
     paginate,
     searchMovies,
     refresh,
-    isRefreshing
-  }
-}
+    isRefreshing,
+  };
+};
 
-export default useMovies
+export default useMovies;
