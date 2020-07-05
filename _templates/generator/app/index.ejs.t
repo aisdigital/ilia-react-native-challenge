@@ -3,14 +3,14 @@ to: app.json
 ---
 {
   "expo": {
-    "name": "ais-react-native-challenge",
+    "name": "AIS React Native Challenge",
     "slug": "ais-react-native-challenge",
     "version": "<%= h.version %>",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./src/assets/icon.png",
     "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
+      "image": "./src/assets/splash.jpg",
+      "resizeMode": "cover",
       "backgroundColor": "#ffffff"
     },
     "updates": {
@@ -20,10 +20,7 @@ to: app.json
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
-    },
-    "web": {
-      "favicon": "./assets/favicon.png"
+      "supportsTablet": false
     },
     "extra": <%- JSON.stringify(h.extra) %>
   }
