@@ -11,7 +11,9 @@ const Home = () => {
     isLoading,
     isPaginating,
     paginate,
-    searchMovies
+    searchMovies,
+    refresh,
+    isRefreshing
   } = useMovies()
   const { labels } = useLanguageController()
 
@@ -38,10 +40,13 @@ const Home = () => {
             () =>
               <List
                 data={movies}
+                isRefreshing={isRefreshing}
                 card={MovieCard}
                 onEndReached={paginate}
                 isPaginating={isPaginating}
                 emptyMessage={labels.noMoviesFound}
+                onRefresh={refresh}
+                contentContainerStyle={styles.contentContainerStyle}
               />
           }
         </LoadingWrapper>
@@ -57,6 +62,9 @@ const styles = StyleSheet.create({
   listContainer: {
     flex: 1,
     justifyContent: 'center'
+  },
+  contentContainerStyle: {
+    paddingBottom: 40
   }
 })
 

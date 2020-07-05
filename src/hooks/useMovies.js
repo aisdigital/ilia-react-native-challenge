@@ -6,6 +6,7 @@ const useMovies = () => {
   const [movies, setMovies] = useState([])
   const [isLoading, setIsLoading] = useState(false)
   const [isPaginating, setIsPaginating] = useState(false)
+  const [isRefreshing, setIsRefreshing] = useState(false)
   const [page, setPage] = useState(1)
   const [maxPage, setMaxPage] = useState(1)
   const [search, setSearch] = useState('')
@@ -29,6 +30,18 @@ const useMovies = () => {
     ])
 
     setIsPaginating(false)
+  })
+
+  const refresh = useCallback(async () => {
+    setIsRefreshing(true)
+
+    const newPage = 1
+
+    setPage(newPage)
+    const result = await loadMovies({ page: newPage })
+
+    setMovies(result)
+    setIsRefreshing(false)
   })
 
   const searchMovies = useCallback(async ({ title }) => {
@@ -77,7 +90,9 @@ const useMovies = () => {
     isLoading,
     isPaginating,
     paginate,
-    searchMovies
+    searchMovies,
+    refresh,
+    isRefreshing
   }
 }
 

@@ -58,7 +58,7 @@ const Movies = {
         : noPosterImage,
       trailer: movie?.videos?.results.reduce((previous, current) => {
         if (previous === noTrailerImage && current.type === 'Trailer') {
-          return `https://www.youtube.com/embed/${current.key}?controls=1&autoplay=1`
+          return `https://www.youtube.com/embed/${current.key}?controls=2&autoplay=1`
         }
 
         return previous

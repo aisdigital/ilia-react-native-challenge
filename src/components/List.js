@@ -1,13 +1,34 @@
 import React from 'react'
-import { FlatList, View, StyleSheet } from 'react-native'
+import { FlatList, View, StyleSheet, RefreshControl } from 'react-native'
 import PropTypes from 'prop-types'
+import { useTheme } from '@react-navigation/native'
+
 import Loading from './Loading'
 import Typography from './Typography'
 
-const List = ({ data, card: Card, onEndReached, isPaginating, contentContainerStyle, emptyMessage }) => {
+const List = ({
+  data,
+  isRefreshing,
+  onRefresh,
+  card: Card,
+  onEndReached,
+  isPaginating,
+  contentContainerStyle,
+  emptyMessage
+}) => {
+  const theme = useTheme()
+
   return (
     <FlatList
       numColumns={2}
+      refreshControl={(
+        <RefreshControl
+          refreshing={isRefreshing}
+          tintColor={theme.colors.text}
+          onRefresh={onRefresh}
+          size={RefreshControl.LARGE}
+        />
+      )}
       data={data}
       renderItem={(payload) => <Card {...payload} />}
       keyExtractor={(item) => item.id.toString()}
@@ -65,7 +86,9 @@ const styles = StyleSheet.create({
 List.defaultProps = {
   onEndReached: () => { },
   contentContainerStyle: {},
-  isPaginating: false
+  isPaginating: false,
+  onRefresh: () => { },
+  isRefreshing: false
 }
 
 List.propTypes = {
@@ -73,6 +96,8 @@ List.propTypes = {
   card: PropTypes.func.isRequired,
   onEndReached: PropTypes.func,
   isPaginating: PropTypes.bool,
+  isRefreshing: PropTypes.bool,
+  onRefresh: PropTypes.func.isRequired,
   emptyMessage: PropTypes.string.isRequired,
   contentContainerStyle: PropTypes.oneOfType([PropTypes.array, PropTypes.object])
 }
