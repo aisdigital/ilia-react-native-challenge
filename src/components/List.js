@@ -33,7 +33,7 @@ const List = ({
         />
       )}
       data={data}
-      renderItem={(payload) => <Card {...payload} />}
+      renderItem={({ item, index }) => <Card item={item} index={index} />}
       keyExtractor={(item) => item.id.toString()}
       onEndReached={onEndReached}
       ListEmptyComponent={() => <EmptyComponent emptyMessage={emptyMessage} />}

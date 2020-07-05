@@ -1,6 +1,7 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect, useRef } from 'react';
 import {
   View, StyleSheet, Dimensions, TouchableOpacity,
+  Animated,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import PropTypes from 'prop-types';
@@ -9,7 +10,7 @@ import { Typography, ImageBackground, StarRating } from '../../../components';
 
 const { height } = Dimensions.get('window');
 
-const MovieCard = ({ item }) => {
+const MovieCard = ({ item, index }) => {
   const navigation = useNavigation();
 
   const handlePress = useCallback(() => {
@@ -18,34 +19,54 @@ const MovieCard = ({ item }) => {
     });
   });
 
+  const translateX = useRef(new Animated.Value(index % 2 ? 500 : -500)).current;
+
+  useEffect(() => {
+    Animated.spring(translateX, {
+      time: 2000,
+      toValue: 0,
+      damping: 10,
+      useNativeDriver: true,
+    }).start();
+  }, []);
+
   return (
-    <TouchableOpacity
-      style={styles.container}
-      onPress={handlePress}
+    <Animated.View style={[
+      styles.container,
+      {
+        transform: [
+          { translateX },
+        ],
+      },
+    ]}
     >
-      <ImageBackground
-        source={{
-          uri: item.image,
-        }}
-        resizeMode="cover"
-        style={styles.image}
+      <TouchableOpacity
+        onPress={handlePress}
       >
-        <View
-          style={styles.textContainer}
+        <ImageBackground
+          source={{
+            uri: item.image,
+          }}
+          resizeMode="cover"
+          style={styles.image}
         >
-          <Typography
-            fontWeight="bold"
-            style={styles.title}
+          <View
+            style={styles.textContainer}
           >
-            {item.title}
-          </Typography>
-          <StarRating
-            containerStyle={styles.starsContainer}
-            rating={item.rating}
-          />
-        </View>
-      </ImageBackground>
-    </TouchableOpacity>
+            <Typography
+              fontWeight="bold"
+              style={styles.title}
+            >
+              {item.title}
+            </Typography>
+            <StarRating
+              containerStyle={styles.starsContainer}
+              rating={item.rating}
+            />
+          </View>
+        </ImageBackground>
+      </TouchableOpacity>
+    </Animated.View>
   );
 };
 
@@ -81,6 +102,7 @@ MovieCard.propTypes = {
     image: PropTypes.string,
     rating: PropTypes.number,
   }).isRequired,
+  index: PropTypes.number.isRequired,
 };
 
 export default MovieCard;
