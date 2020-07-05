@@ -15,7 +15,7 @@ To test the project already configured and running [click here.](https://exp.hos
 
 Home Screen             |  Details Screen | Settings Screen 
 :-------------------------:|:-------------------------:|:-------------------------:
-![](https://res.cloudinary.com/iredhd/image/upload/v1593919044/ais-digital/home.png.png)  |  ![](https://res.cloudinary.com/iredhd/image/upload/v1593919272/ais-digital/details.png.png)  |  ![](https://res.cloudinary.com/iredhd/image/upload/v1593919272/ais-digital/settings.png.png)
+![](https://res.cloudinary.com/iredhd/image/upload/v1593919044/ais-digital/home.png)  |  ![](https://res.cloudinary.com/iredhd/image/upload/v1593919272/ais-digital/details.png.png)  |  ![](https://res.cloudinary.com/iredhd/image/upload/v1593919272/ais-digital/settings.png.png)
 
 ## Technologies
 - [React](https://github.com/facebook/react)
