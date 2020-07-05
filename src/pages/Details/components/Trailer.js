@@ -1,5 +1,9 @@
-import React, { useState, useCallback } from 'react';
-import { View, StyleSheet, Dimensions } from 'react-native';
+import React, {
+  useState, useCallback, useRef, useEffect,
+} from 'react';
+import {
+  View, StyleSheet, Dimensions, Animated,
+} from 'react-native';
 import WebView from 'react-native-webview';
 import { useTheme } from '@react-navigation/native';
 import PropTypes from 'prop-types';
@@ -12,6 +16,8 @@ const Trailer = ({ trailer }) => {
   const theme = useTheme();
   const [isLoadingTrailer, setIsLoadingTrailer] = useState(true);
 
+  const scale = useRef(new Animated.Value(0)).current;
+
   const handleTrailerLoadStart = useCallback(() => {
     setIsLoadingTrailer(true);
   });
@@ -20,10 +26,25 @@ const Trailer = ({ trailer }) => {
     setIsLoadingTrailer(false);
   });
 
+  useEffect(() => {
+    Animated.spring(scale, {
+      toValue: 1,
+      damping: 10,
+      useNativeDriver: true,
+    }).start();
+  }, []);
+
   return (
-    <View style={[
+    <Animated.View style={[
       styles.container,
       { backgroundColor: theme.colors.background },
+      {
+        transform: [
+          {
+            scale,
+          },
+        ],
+      },
       isLoadingTrailer && styles.videoContainerIsLoading,
     ]}
     >
@@ -42,7 +63,7 @@ const Trailer = ({ trailer }) => {
           <Loading />
         </View>
         )}
-    </View>
+    </Animated.View>
   );
 };
 
