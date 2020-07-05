@@ -12,17 +12,10 @@ The application consists of a system with two screens, home and details. Where t
 
 To test the project already configured and running [click here.](https://exp.host/@iredhd/ais-react-native-challenge)
 
-<div style="display: flex; flex: 1; justify-content: space-evenly;">
-<div style="display: flex;">
-<img alt="Home Image" src="https://res.cloudinary.com/iredhd/image/upload/v1593919044/ais-digital/home.png.png" height=300 />
-</div>
-<div style="display: flex;">
-<img alt="Details Image" src="https://res.cloudinary.com/iredhd/image/upload/v1593919272/ais-digital/details.png.png" height=300 />
-</div>
-<div style="display: flex;">
-<img alt="Settings Image" src="https://res.cloudinary.com/iredhd/image/upload/v1593919272/ais-digital/settings.png.png" height=300 />
-</div>
-</div>
+
+Home Screen             |  Details Screen | Settings Screen 
+:-------------------------:|:-------------------------:|:-------------------------:
+![](https://res.cloudinary.com/iredhd/image/upload/v1593919044/ais-digital/home.png.png)  |  ![](https://res.cloudinary.com/iredhd/image/upload/v1593919272/ais-digital/details.png.png)  |  ![](https://res.cloudinary.com/iredhd/image/upload/v1593919272/ais-digital/settings.png.png)
 
 ## Technologies
 - [React](https://github.com/facebook/react)
