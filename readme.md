@@ -1,36 +1,25 @@
-# ília - Code Challenge React Native
+# Ília React-native challenge 🍿
 
-##### English
-## The Challenge:
-Using the API from [TheMovieDB](https://developers.themoviedb.org/3/getting-started/introduction), You must create an app (*Please do not use Expo*) using that shows the featured movies in the Theaters, in a list.
+- Developing an application using React-native with Typescript ⌨️
+- Project description stated [here](https://github.com/aisdigital/ilia-react-native-challenge)
 
-When the user touches in a movie, the app must show in a detail screen detailed information about it. You can choose which information should be shown.
+**_Clone the repository in order to follow the steps inside the `How to run` sections_**
+<br>
 
-## Extra features:
+### How to run 🛫
+- Go to the `mobile/` folder and run `npm install` in order to install the application's depencies
+  - If you're using XCode go to the `ios/` folder and run the `pod install` command   
+- Run `react-native link` inside the root `mobile/` folder 
+- Then, to run the app run `npm run ios` if you're using XCode, otherwise execute `npm run android`
+- Furthermore, since the application is using TheMovieDB API, you should create an account on their [website](https://www.themoviedb.org/?language=pt-BR)
+  - Afterwards, create a new file called `apiKey.ts` under the `src/constants` folder and in it add the following code: `export const MOVIE_DB_API_KEY = <YOUR_API_KEY>` with `<YOUR_API_KEY>` replaced by your API key under **Settings** > **API** > **API Key (v3 auth)**
+  <br>
+  *Note: I've tried adding this API key on a `.env` file, but I ended up having some problems and since time was short I decided for the above mentioned approach*
 
-- In the main list of the movies, would be nice if the app could load more movies, as the scroll reaches the bottom section of the current page.
-- In the detail screen, would be nice to have an option to play the movie trailer.
-- In the main screen, would be nice to have the possibility to search by the movie title.
-
-In the end, a pull request must be created in the Github repo. As soon as you finish, please let us know.
-
-We are available to answer any questions.
-
-##### Portuguese
-## The Challenge:
-Utilizando a API do [TheMovieDB](https://developers.themoviedb.org/3/getting-started/introduction), Criar um app (*Por favor nāo use o Expo*) que mostre os filmes que estão em cartaz nos cinemas, em forma de lista.
-
-Ao tocar em um filme, mostrar em uma nova tela, informações detalhadas sobre ele, você pode escolher quais informações acha interessante mostrar.
-
-## Extras:
-
-- Na tela de listagem dos filmes, ir carregando as próximas páginas ao dar scroll até o final da página atual
-- Na tela de detalhe, criar uma opçāo para tocar o vídeo do trailer do filme.
-- Na tela inicial, possibilitar a busca por título do filme
-
-
-No final, um pull request deve ser criado no repositório do Github. Assim que terminar, por favor nos avise.
-
-Estamos à disposição, para tirar dúvidas.
-
-Happy coding! 🤓
+### Features 🎲
+- `axios` for handling api calls 
+- `styled-components` for the app's styling
+- `react-native-iconly` for the app's icons
+- `Flatlist` for the infinite scroll on the `Home` screen  
+- `react-native-responsive-fontsize` to keep the stylization responsive across different devices
+- `Webview` for the trailer's visualization 
